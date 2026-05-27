@@ -1,3 +1,0 @@
-/system/preload/MinusOnePage/MinusOnePage.apk
-/system/preload/SmartSwitchAgent/SmartSwitchAgent.apk
-/system/preload/SmartSwitchStub/SmartSwitchStub.apk
