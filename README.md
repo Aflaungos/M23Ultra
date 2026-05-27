@@ -18,12 +18,12 @@ A complete OneUI ROM Porting Guide Noob Friendly✅
 ## 1. Unpacking 🪄
 
 - Extract the stock AP from your device and the ported device (AP has the patition `super` which has `system`, `product`, `odm` and `vendor` inside) with an Android Kitchen like CRB.
-  |- ⚠️ Skip extracting `vendor_boot` from yours and ported devices.
+  - ⚠️ Skip extracting `vendor_boot` from yours and ported devices.
 
-- Replace all the files indicated in the replaced-apps.txt: [replaced_files.txt]() in the ported device system folder (should be under `CRB_Folder/Projects/<YOUR_PROJECT_NAME>/ROM)`
+- Replace all the files indicated in the replaced-apps.txt: [replaced_files.txt](https://github.com/Aflaungos/M23Ultra/blob/Android16/replaced_files.txt) in the ported device system folder (should be under `CRB_Folder/Projects/<YOUR_PROJECT_NAME>/ROM)`
 
-- [OPTIONAL/DEBLOATING] Open [removed_apps.txt]() and delete all the apps in the list from the ported device's `system` partition.
-  |- ⚠️ Delete files of `odm`, `product` and `vendor` from your device project and of `system` from ported device project
+- [OPTIONAL/DEBLOATING] Open [removed_apps.txt](https://github.com/Aflaungos/M23Ultra/blob/Android16/removed_apps.txt) and delete all the apps in the list from the ported device's `system` partition.
+  - ⚠️ Delete files of `odm`, `product` and `vendor` from your device project and of `system` from ported device project
 
 ## 1.1 Fixing system_ext 🛠️
 
@@ -50,22 +50,20 @@ A complete OneUI ROM Porting Guide Noob Friendly✅
     2. Inside `vendor/etc/selinux/plat_pub_versioned.cil`, check with each line in the table below if you have it on this file, **and if not** add all lines containing these entries into `vendor/etc/selinux/plat_pub_versioned.cil` and `vendor/etc/selinux/vendor_sepolicy.cil`
     
     3. These are the entries:
-      |- ⚠️ They stack with higher OneUI version, so if for example you're on UI 7, check from 5 and 6 too!
 
-      ============================================================================================================================
-      | OneUI 5/5.1              | OneUI 6/6.1/6.1.1             | OneUI 7                       | OneUI 8/8.5			 |
-      |:------------------------:|:-----------------------------:|:-----------------------------:|:-----------------------------:|
-      | audiomirroring           | hal_dsms_default              | attiqi_app                    | heatmap_default		 |
-      | audiomirroring_exec      | hal_dsms_default_exec         | attiqi_app_data_file          | heatmap_default_exec		 |
-      | audiomirroring_service   | proc_compaction_proactiveness | ker_app                       | ----------------------------- |
-      | fabriccrypto             | sbauth                        | kpp_app                       | ----------------------------- |
-      | fabriccrypto_exec        | sbauth_exec                   | kpp_data_file                 | ----------------------------- |
-      | fabriccrypto_data_file   | ----------------------------- | ----------------------------- | ----------------------------- |
-      | hal_dsms_service         | ----------------------------- | ----------------------------- | ----------------------------- |
-      | uwb_regulation_skip_prop | ----------------------------- | ----------------------------- | ----------------------------- |
-      ============================================================================================================================
+      OneUI 5/5.1              | OneUI 6/6.1/6.1.1             | OneUI 7                       | OneUI 8/8.5
+      |:----------------------:|:-----------------------------:|:-----------------------------:|:-----------------------------:|
+      audiomirroring           | hal_dsms_default              | attiqi_app                    | heatmap_default		           
+      audiomirroring_exec      | hal_dsms_default_exec         | attiqi_app_data_file          | heatmap_default_exec		       
+      audiomirroring_service   | proc_compaction_proactiveness | ker_app                       | ----------------------------- 
+      fabriccrypto             | sbauth                        | kpp_app                       | ----------------------------- 
+      fabriccrypto_exec        | sbauth_exec                   | kpp_data_file                 | ----------------------------- 
+      fabriccrypto_data_file   | ----------------------------- | ----------------------------- | ----------------------------- 
+      hal_dsms_service         | ----------------------------- | ----------------------------- | ----------------------------- 
+      uwb_regulation_skip_prop | ----------------------------- | ----------------------------- | -----------------------------
 
-      |- ⚠️ If you wish to skip this step and build with SELinux disabled (which I strongly do not recommend, edit the line `ro.build.selinux=1` to `ro.build.selinux=0` inside `system/build.prop`. You might also need to patch kernel bootargs)
+      - ⚠️ They stack with higher OneUI version, so if for example you're on UI 7, check from 5 and 6 too!
+      - ⚠️ If you wish to skip this step and build with SELinux disabled (which I strongly do not recommend, edit the line `ro.build.selinux=1` to `ro.build.selinux=0` inside `system/build.prop`. You might also need to patch kernel bootargs)
 
 ## 3. `system_ext`: Fixing APEX
 
