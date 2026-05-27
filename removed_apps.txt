@@ -1,4 +1,4 @@
-# Removed Apps 
+# Removed Apps (THIS IS ENTIRELY OPTIONAL!)
 Here is the list of all the apps removed for this ROM
 
 # Product
@@ -44,21 +44,8 @@ priv-app/EnhancedAttestationAgent
 priv-app/FBInstaller_NS
 priv-app/FBServices
 priv-app/FotaAgent
-priv-app/KLMSAgent
-priv-app/knoxanalyticsagent
-priv-app/KnoxCore
-priv-app/KnoxPushManager
-priv-app/knoxvpnproxyhandler
-priv-app/KPECore
 priv-app/OMCAgent5
 priv-app/OneDrive_Samsung_v3
 priv-app/PaymentFramework
-priv-app/SPPPushClient
 priv-app/SamsungPass
 priv-app/Upday
-
-# Vendor
-bin/cass
-bin/vaultkeeperd
-etc/vintf/manifest/vaultkeeper_manifest.xml
-

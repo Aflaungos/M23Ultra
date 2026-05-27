@@ -1,0 +1,21 @@
+# Replaced and Added Apps 
+Here is the list of all the apps replaced for this ROM. Use stock ROM files
+
+##System
+app/NfcNci
+app/WifiRROverlayApp
+Priv-app/CameraLightSensor
+cameradata (Complete folder)
+etc/audio_effects.conf
+etc/audio_effects_common.conf
+etc/libnfc-nci.conf
+etc/nfc_key
+etc/public.libraries-camera.samsung.txt
+etc/stage_policy.conf
+lib/libswdap_legacy.so
+lib/libswspatializer_legacy.so
+lib64/libswdap_legacy.so
+lib64/libswspatializer_legacy.so
+lib64/libnfc-nxpsn.so
+lib64/libnfc-sec.so
+saiv
