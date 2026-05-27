@@ -17,17 +17,15 @@ A complete OneUI ROM Porting Guide Noob Friendly✅
 # ⚙️ Tutorial
 ## 1. Unpacking 🪄
 
-- Extract the stock AP from your device and the ported device (AP has the patition `super` which has `system`, `product`, `odm` and `vendor` inside) with an Android Kitchen like CRB.
-  - ⚠️ Skip extracting `vendor_boot` from yours and ported devices.
+- Extract the stock ROM zip from your device and the ported device with an Android Kitchen like CRB.
 
 - Replace all the files indicated in the replaced-apps.txt: [replaced_files.txt](https://github.com/Aflaungos/M23Ultra/blob/Android16/replaced_files.txt) in the ported device system folder (should be under `CRB_Folder/Projects/<YOUR_PROJECT_NAME>/ROM)`
 
-- [OPTIONAL/DEBLOATING] Open [removed_apps.txt](https://github.com/Aflaungos/M23Ultra/blob/Android16/removed_apps.txt) and delete all the apps in the list from the ported device's `system` partition.
-  - ⚠️ Delete files of `odm`, `product` and `vendor` from your device project and of `system` from ported device project
+- [OPTIONAL/DEBLOATING] Open [removed_apps.txt](https://github.com/Aflaungos/M23Ultra/blob/Android16/removed_apps.txt) and delete all the apps in the list.
+
+⚠️ Some files are missing in your `vendor` partition because they don't come with non-flagship phones. They are unessential, but if you want full compatibility and working features, you should compare your `vendor` parition with the ported device's `vendor` partition.
 
 ## 1.1 Fixing system_ext 🛠️
-
-- Some files are missing in your `vendor` partition because they don't come with non-flagship phones. They are unessential, but if you want full compatibility and working features, you should compare your `vendor` parition with the ported device's `vendor` partition.
 
 - Check if your system_ext folder is outside or inside /system. If you have system_ext as a partition inside super then it is outside system. In either case, you have to place the folder in the proper position and also add the symlink for each case:
 
