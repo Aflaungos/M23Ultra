@@ -51,16 +51,16 @@ A complete OneUI ROM Porting Guide Noob Friendly✅
     
     3. These are the entries:
 
-      OneUI 5/5.1              | OneUI 6/6.1/6.1.1             | OneUI 7                       | OneUI 8/8.5
-      |:----------------------:|:-----------------------------:|:-----------------------------:|:-----------------------------:|
-      audiomirroring           | hal_dsms_default              | attiqi_app                    | heatmap_default		           
-      audiomirroring_exec      | hal_dsms_default_exec         | attiqi_app_data_file          | heatmap_default_exec		       
-      audiomirroring_service   | proc_compaction_proactiveness | ker_app                       | ----------------------------- 
-      fabriccrypto             | sbauth                        | kpp_app                       | ----------------------------- 
-      fabriccrypto_exec        | sbauth_exec                   | kpp_data_file                 | ----------------------------- 
-      fabriccrypto_data_file   | ----------------------------- | ----------------------------- | ----------------------------- 
-      hal_dsms_service         | ----------------------------- | ----------------------------- | ----------------------------- 
-      uwb_regulation_skip_prop | ----------------------------- | ----------------------------- | -----------------------------
+      OneUI 5/5.1              | OneUI 6/6.1/6.1.1             | OneUI 7              | OneUI 8/8.5
+      |:----------------------:|:-----------------------------:|:--------------------:|:--------------------:|
+      audiomirroring           | hal_dsms_default              | attiqi_app           | heatmap_default		           
+      audiomirroring_exec      | hal_dsms_default_exec         | attiqi_app_data_file | heatmap_default_exec		       
+      audiomirroring_service   | proc_compaction_proactiveness | ker_app              | -------------------- 
+      fabriccrypto             | sbauth               | kpp_app              | -------------------- 
+      fabriccrypto_exec        | sbauth_exec          | kpp_data_file        | -------------------- 
+      fabriccrypto_data_file   | -------------------- | -------------------- | -------------------- 
+      hal_dsms_service         | -------------------- | -------------------- | -------------------- 
+      uwb_regulation_skip_prop | -------------------- | -------------------- | --------------------
 
       - ⚠️ They stack with higher OneUI version, so if for example you're on UI 7, check from 5 and 6 too!
       - ⚠️ If you wish to skip this step and build with SELinux disabled (which I strongly do not recommend, edit the line `ro.build.selinux=1` to `ro.build.selinux=0` inside `system/build.prop`. You might also need to patch kernel bootargs)
