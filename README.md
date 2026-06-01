@@ -92,11 +92,11 @@ A complete OneUI ROM Porting Guide Noob Friendly✅
 
 ## 6. Packaging 💾📀
 
-- After completing all the changes you want, re-pack `odm`, `product` and `vendor` from your device's project as sparse (new.dat).
+- After completing all the changes you want, re-pack `odm`, `product` and `vendor` from your device's project as `raw`.
 
-- Re-pack `system` (again as sparse (new.dat)) from ported device's project, and copy over the newly generated `system.img` file to your device's project Build folder.
+- Re-pack `system` (again as `raw`) from ported device's project, and copy over the newly generated `system.img` file to your device's project Build folder.
 
-- Repack `super.img` as a `raw` image inside device's project and compress the new `super.img` into an `xz` file using 7-zip
+- Repack `super.img` as a `sparse` image inside device's project and compress the new `super.img` into an `xz` file using 7-zip
 
 ## 7. Troubleshooting packaging
 
