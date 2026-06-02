@@ -25,7 +25,7 @@ A complete OneUI ROM Porting Guide Noob Friendly✅
 
 ⚠️ Some files are missing in your `vendor` partition because they don't come with non-flagship phones. They are unessential, but if you want full compatibility and working features, you should compare your `vendor` parition with the ported device's `vendor` partition.
 
-## 1.1 Fixing system_ext 🛠️
+## 1.1 Fixing system_ext of the ported device🛠️
 
 - Check if your system_ext folder is outside or inside /system. If you have system_ext as a partition inside super then it is outside system. In either case, you have to place the folder in the proper position and also add the symlink for each case:
 
@@ -35,8 +35,6 @@ A complete OneUI ROM Porting Guide Noob Friendly✅
 
   3. You need to also fix `file_contexts` for the system. Open up `system_file_contexts` and Add the `system_ext` entries from port rom's `system_ext_file_contexts`. Check your device's rom `system_file_contexts` and compare to make sure the same entries are there, aside from the new entries of the port system_ext.
 
-## 2. Inside the `system_ext` partition of the ported device
-
   - [OPTIONAL] Check if any 'FM radio' libs are missing and port them from your device to it.
 
   - Replace the build.prop file with your device's file inside the `etc` folder.
@@ -45,9 +43,16 @@ A complete OneUI ROM Porting Guide Noob Friendly✅
 
     1. Check `plat_sepolicy_vers.txt` for which vndk version you have (ex: 30 = VNDK30, 31 = VNDK31 and so on). Note the number down as `YOURNUMBER`.
 
-    2. Inside `vendor/etc/selinux/plat_pub_versioned.cil`, check with each line in the table below if you have it on this file, **and if not** add all lines containing these entries into `vendor/etc/selinux/plat_pub_versioned.cil` and `vendor/etc/selinux/vendor_sepolicy.cil`
+  - Compare inside the folder `system_ext/apex` from port and your device ROM, you notice that you have a different number (which is the VNDK version of your device aka `YOURNUMBER`) you have to replace it with yours.
+    1. For example, `com.android.vndk.v30.apex` is yours and `com.android.vndk.v31/32/33/34.apex` in the port, replace it!
+
+  - If you face `vold-failed` as reboot reason in logs, just check which apex it says missing and add it.
+
+## 1.2 Fixing vendor🛠️
+
+    1. Inside `vendor/etc/selinux/plat_pub_versioned.cil`, check with each line in the table below if you have it on this file, **and if not** add all lines containing these entries into `vendor/etc/selinux/plat_pub_versioned.cil` and `vendor/etc/selinux/vendor_sepolicy.cil`
     
-    3. These are the entries:
+    2. These are the entries:
 
       OneUI 5/5.1              | OneUI 6/6.1/6.1.1             | OneUI 7              | OneUI 8/8.5
       |:----------------------:|:-----------------------------:|:--------------------:|:--------------------:|
@@ -62,13 +67,6 @@ A complete OneUI ROM Porting Guide Noob Friendly✅
 
       - ⚠️ They stack with higher OneUI version, so if for example you're on UI 7, check from 5 and 6 too!
       - ⚠️ If you wish to skip this step and build with SELinux disabled (which I strongly do not recommend, edit the line `ro.build.selinux=1` to `ro.build.selinux=0` inside `system/build.prop`. You might also need to patch kernel bootargs)
-
-## 3. `system_ext`: Fixing APEX
-
-  - If comparing inside the folder `system_ext/apex` from port and your device ROM, you notice that you have a different number (which is the VNDK version of your device) you have to replace it with yours.
-    |- For example, `com.android.vndk.v30.apex` is yours and `com.android.vndk.v31/32/33/34.apex` in the port, replace it!
-
-  - If you face `vold-failed` as reboot reason in logs, just check which apex it says missing and add it.
 
 ## 4. Inside `system_dlkm/etc` folder
 
