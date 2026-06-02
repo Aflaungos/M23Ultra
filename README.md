@@ -49,10 +49,9 @@ A complete OneUI ROM Porting Guide Noob Friendly✅
   - If you face `vold-failed` as reboot reason in logs, just check which apex it says missing and add it.
 
 ## 1.2 Fixing vendor🛠️
-
-    1. Inside `vendor/etc/selinux/plat_pub_versioned.cil`, check with each line in the table below if you have it on this file, **and if not** add all lines containing these entries into `vendor/etc/selinux/plat_pub_versioned.cil` and `vendor/etc/selinux/vendor_sepolicy.cil`
+1. Inside `vendor/etc/selinux/plat_pub_versioned.cil`, check with each line in the table below if you have it on this file, **and if not** add all lines containing these entries into `vendor/etc/selinux/plat_pub_versioned.cil` and `vendor/etc/selinux/vendor_sepolicy.cil`
     
-    2. These are the entries:
+2. These are the entries:
 
       OneUI 5/5.1              | OneUI 6/6.1/6.1.1             | OneUI 7              | OneUI 8/8.5
       |:----------------------:|:-----------------------------:|:--------------------:|:--------------------:|
